@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import "./QuizApp.css";
 
 function Quiz() {
   const [username, setUsername] = useState("");
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
   const fetchQuestions = async () => {
     try {
@@ -22,17 +27,38 @@ function Quiz() {
     fetchQuestions();
   }, []);
 
-  const handleAnswerChange = (questionId, selectedOption, correctOption) => {
-    const newAnswers = [...answers];
-    const index = newAnswers.findIndex(
-      (answer) => answer.questionId === questionId
-    );
-    if (index !== -1) {
-      newAnswers[index].selectedOption = selectedOption;
-    } else {
-      newAnswers.push({ questionId, selectedOption, correctOption });
-    }
-    setAnswers(newAnswers);
+  const handleOptionClick = (questionId, option) => {
+    setSelectedOptions((prevSelectedOptions) => {
+      const newSelectedOptions = { ...prevSelectedOptions };
+      if (newSelectedOptions[questionId] === option) {
+        delete newSelectedOptions[questionId];
+      } else {
+        newSelectedOptions[questionId] = option;
+      }
+      return newSelectedOptions;
+    });
+
+    setAnswers((prevAnswers) => {
+      const newAnswers = [...prevAnswers];
+      const index = newAnswers.findIndex(
+        (answer) => answer.questionId === questionId
+      );
+      if (index !== -1) {
+        if (newAnswers[index].selectedOption === option) {
+          newAnswers.splice(index, 1);
+        } else {
+          newAnswers[index].selectedOption = option;
+        }
+      } else {
+        newAnswers.push({
+          questionId,
+          selectedOption: option,
+          correctOption: questions.find((q) => q._id === questionId)
+            .correctOption,
+        });
+      }
+      return newAnswers;
+    });
   };
 
   const handleSubmit = async () => {
@@ -48,38 +74,45 @@ function Quiz() {
     }
   };
 
+  const answeredCount = Object.keys(selectedOptions).length;
+  const progressValue = (answeredCount / questions.length) * 100;
+
   return (
-    <div>
-      <input
+    <div className="quiz-container">
+      <Input
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Enter username"
+        className="username-input"
       />
+      <Progress value={progressValue} className="m-2 " />
       {questions.map((question) => (
-        <div key={question._id}>
-          <p>{question.question}</p>
-          {question.options.map((option, index) => (
-            <label key={index}>
-              <input
-                type="radio"
-                name={`question-${question._id}`}
-                value={option}
-                onChange={() =>
-                  handleAnswerChange(
-                    question._id,
-                    option,
-                    question.correctOption
-                  )
-                }
-              />
-              {option}
-            </label>
-          ))}
+        <div key={question._id} className="question-container">
+          <p className="question-text">{question.question}</p>
+          <div className="options-container">
+            {question.options.map((option, index) => (
+              <div
+                key={index}
+                className={`option-container ${
+                  selectedOptions[question._id] === option ? "selected" : ""
+                }`}
+                onClick={() => handleOptionClick(question._id, option)}
+              >
+                {option}
+              </div>
+            ))}
+          </div>
         </div>
       ))}
-      <button onClick={handleSubmit}>Submit</button>
-      <button onClick={fetchQuestions}>Refresh Questions</button>
+      <div className="button-container">
+        <Button onClick={handleSubmit} className="submit-button">
+          Submit
+        </Button>
+        <Button onClick={fetchQuestions} className="refresh-button">
+          Refresh Questions
+        </Button>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,82 @@
+.admin-panel {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #f9f9f9;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .title {
+   font-size: 24px;
+   font-weight: bold;
+   margin-bottom: 20px;
+   text-align: center;
+ }
+ 
+ .alert {
+   margin-bottom: 20px;
+   padding: 10px;
+   border-radius: 5px;
+ }
+ 
+ .alert[status="error"] {
+   background-color: #f8d7da;
+   color: #721c24;
+ }
+ 
+ .alert[status="success"] {
+   background-color: #d4edda;
+   color: #155724;
+ }
+ 
+ .form {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+ }
+ 
+ .textarea {
+   padding: 10px;
+   border: 2px solid #ddd;
+   border-radius: 5px;
+   transition: all 0.3s ease;
+   height: auto;
+   min-height: 200px; /* Minimum height equivalent to 4 lines */
+   max-height: 150px; /* Maximum height before scrollbar appears */
+   overflow-y: auto; /* Adds vertical scrollbar if content exceeds max-height */
+   resize: vertical; /* Allows user to resize vertically if needed */
+ }
+ 
+ .textarea:focus {
+   border-color: #007bff;
+   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+ }
+ 
+ .input {
+   padding: 10px;
+   border: 2px solid #ddd;
+   border-radius: 5px;
+   transition: all 0.3s ease;
+ }
+ 
+ .input:focus {
+   border-color: #007bff;
+   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+ }
+ 
+ .submit-button {
+   padding: 10px 20px;
+   font-size: 16px;
+   border-radius: 5px;
+   border: none;
+   cursor: pointer;
+   background-color: #007bff;
+   color: white;
+   transition: background-color 0.3s ease;
+ }
+ 
+ .submit-button:hover {
+   background-color: #0056b3;
+ }
+ 

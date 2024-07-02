@@ -1,0 +1,67 @@
+/* Glassy Navbar with 3D Effect */
+.navbar {
+   background: rgba(255, 255, 255, 0.199); /* Glassy effect */
+   backdrop-filter: blur(5px); /* Blurring the background */
+   border-radius: 10px; /* Rounded corners */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 3D shadow */
+   padding: 1px 2px; /* Padding */
+   position: fixed; /* Keep it fixed at the top */
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000; /* Ensure it is on top of other content */
+ }
+ 
+ /* Container for Navbar content */
+ .navbar-content {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ 
+ /* Logo styles */
+ .logo {
+   font-family: 'Poppins', sans-serif; /* Use a stylish font */
+   font-size: 24px;
+   font-weight: bold;
+   color: #320051; /* Green color for the logo */
+   padding-left: 20px; /* Left padding for the logo */
+ }
+ 
+ /* Navigation links */
+ .nav-links {
+   list-style: none;
+   padding: 10;
+   margin: 0;
+   display: flex;
+   gap: 15px; /* Space between links */
+ }
+ 
+ /* Individual link styles */
+ .nav-links li {
+   display: inline;
+ }
+ 
+ .nav-links a {
+   display: block;
+   color: rgb(39, 6, 44);
+   text-align: center;
+   padding: 8px 10px;
+   margin: 5px;
+   text-decoration: none;
+   border-radius: 5px; /* Rounded corners for links */
+   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+ }
+ 
+ /* Link hover effect */
+ .nav-links a:hover {
+   background-color: hsl(298, 100%, 12%); /* Green background on hover */
+   color: white;
+ }
+ 
+ /* Active link style */
+ .active-link {
+   background-color: #0a250b6f; /* Green background for active link */
+   color: white;
+ }
+ 

@@ -1,5 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import "./AdminPanel.css";
 
 function Admin() {
   const [question, setQuestion] = useState("");
@@ -48,33 +52,47 @@ function Admin() {
   };
 
   return (
-    <div>
-      <h2>Admin Panel</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+    <div className="admin-panel">
+      <h2 className="title">Admin Panel</h2>
+      {error && (
+        <Alert status="error" className="alert">
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+      {success && (
+        <Alert status="success" className="alert">
+          <AlertTitle>Success</AlertTitle>
+          <AlertDescription>{success}</AlertDescription>
+        </Alert>
+      )}
+      <form onSubmit={handleSubmit} className="form">
+        <textarea
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           placeholder="Enter question"
+          className="textarea"
         />
         {options.map((option, index) => (
-          <input
+          <Input
             key={index}
             type="text"
             value={option}
             onChange={(e) => handleOptionChange(index, e.target.value)}
             placeholder={`Option ${index + 1}`}
+            className="input"
           />
         ))}
-        <input
+        <Input
           type="text"
           value={correctOption}
           onChange={(e) => setCorrectOption(e.target.value)}
           placeholder="Correct option"
+          className="input"
         />
-        <button type="submit">Submit</button>
+        <Button type="submit" className="submit-button">
+          Submit
+        </Button>
       </form>
     </div>
   );
