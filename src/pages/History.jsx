@@ -8,7 +8,7 @@ function History() {
   const fetchHistory = async () => {
     try {
       const res = await axios.get(
-        `https://quiz-backend-1-yerh.onrender.com/api/history/${username}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/history/${username}`
       );
       setHistory(res.data);
     } catch (error) {

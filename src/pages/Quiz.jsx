@@ -15,7 +15,7 @@ function Quiz() {
     try {
       setQuestions([]);
       const res = await axios.get(
-        "https://quiz-backend-1-yerh.onrender.com/api/questions"
+        `${import.meta.env.VITE_BACKEND_URL}/api/questions`
       );
       setQuestions(res.data);
     } catch (error) {
@@ -63,7 +63,7 @@ function Quiz() {
 
   const handleSubmit = async () => {
     try {
-      await axios.post("https://quiz-backend-1-yerh.onrender.com/api/submit", {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/submit`, {
         username,
         answers,
       });

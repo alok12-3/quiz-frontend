@@ -31,14 +31,11 @@ function Admin() {
     }
 
     try {
-      await axios.post(
-        "https://quiz-backend-1-yerh.onrender.com/api/questions",
-        {
-          question,
-          options,
-          correctOption,
-        }
-      );
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/questions`, {
+        question,
+        options,
+        correctOption,
+      });
 
       setQuestion("");
       setOptions(["", "", "", ""]);
