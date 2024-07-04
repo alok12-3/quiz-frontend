@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
       <div className="app-background">
-        <Navbar />
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
