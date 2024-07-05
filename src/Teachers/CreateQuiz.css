@@ -1,0 +1,48 @@
+.create-quiz-container {
+   display: flex;
+   gap: 20px;
+ }
+ 
+ .filters {
+   flex: 1;
+   padding: 10px;
+   border: 1px solid #ccc;
+ }
+ 
+ .questions-list {
+   flex: 2;
+   padding: 10px;
+   border: 1px solid #ccc;
+ }
+ 
+ .selected-questions {
+   flex: 1;
+   padding: 10px;
+   border: 1px solid #ccc;
+ }
+ 
+ .quiz-details {
+   flex: 1;
+   padding: 10px;
+   border: 1px solid #ccc;
+ }
+ 
+ .filters select,
+ .quiz-details input,
+ .questions-list button {
+   display: block;
+   width: 100%;
+   margin: 10px 0;
+ }
+ 
+ ul {
+   list-style-type: none;
+   padding: 0;
+ }
+ 
+ ul li {
+   margin: 5px 0;
+   display: flex;
+   justify-content: space-between;
+ }
+ 

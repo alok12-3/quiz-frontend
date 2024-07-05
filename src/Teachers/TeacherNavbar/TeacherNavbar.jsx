@@ -8,28 +8,23 @@ function Navbar() {
         <div className="logo">Quiz App</div>
         <ul className="nav-links">
           <li>
-            <NavLink exact to="/" activeClassName="active-link">
+            <NavLink exact to="/teacher" activeClassName="active-link">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/quiz" activeClassName="active-link">
+            <NavLink to="/teacher/quiz" activeClassName="active-link">
               Quiz
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin" activeClassName="active-link">
-              Admin
+            <NavLink to="/teacher/students" activeClassName="active-link">
+              Students
             </NavLink>
           </li>
           <li>
-            <NavLink to="/history" activeClassName="active-link">
-              History
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/teacher" activeClassName="active-link">
-              Teacher
+            <NavLink to="/teacher/bookmarks" activeClassName="active-link">
+              Bookmarks
             </NavLink>
           </li>
         </ul>

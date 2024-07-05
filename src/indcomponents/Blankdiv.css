@@ -1,0 +1,12 @@
+/* BlankDiv.css */
+.blank-div {
+   background: rgba(255, 255, 255, 0); /* Glassy effect */
+
+   border-radius: 10px; /* Rounded corners */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0); /* 3D shadow */
+   padding: 1px 2px; /* Padding */
+   width: 100%; /* Full width */
+   height: 60px; /* Fixed height, similar to the navbar height */
+   margin-top: 0px; /* Margin to separate from the navbar if needed */
+ }
+ 
