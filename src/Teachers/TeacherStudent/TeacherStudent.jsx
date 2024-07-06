@@ -4,9 +4,14 @@ import axios from "axios";
 const TeacherStudent = ({ teacher, setTeacher }) => {
   const [students, setStudents] = useState([]);
   const [newStudent, setNewStudent] = useState({
+    username: "",
     name: "",
     class: "",
     section: "",
+    age: "",
+    address: "",
+    phoneNumber: "",
+    schoolId: "",
   });
 
   useEffect(() => {
@@ -40,15 +45,20 @@ const TeacherStudent = ({ teacher, setTeacher }) => {
         newStudent
       );
       setStudents([...students, response.data]);
-      setNewStudent({ name: "", class: "", section: "" });
+      setNewStudent({
+        username: "",
+        name: "",
+        class: "",
+        section: "",
+        age: "",
+        address: "",
+        phoneNumber: "",
+        schoolId: "",
+      });
     } catch (error) {
       console.error("Error adding student", error);
     }
   };
-
-  if (!students.length) {
-    return <div>No students found.</div>;
-  }
 
   return (
     <div>
@@ -61,6 +71,14 @@ const TeacherStudent = ({ teacher, setTeacher }) => {
         ))}
       </ul>
       <form onSubmit={handleAddStudent}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={newStudent.username}
+          onChange={handleInputChange}
+          required
+        />
         <input
           type="text"
           name="name"
@@ -82,6 +100,38 @@ const TeacherStudent = ({ teacher, setTeacher }) => {
           name="section"
           placeholder="Section"
           value={newStudent.section}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="number"
+          name="age"
+          placeholder="Age"
+          value={newStudent.age}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="address"
+          placeholder="Address"
+          value={newStudent.address}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="phoneNumber"
+          placeholder="Phone Number"
+          value={newStudent.phoneNumber}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="schoolId"
+          placeholder="School ID"
+          value={newStudent.schoolId}
           onChange={handleInputChange}
           required
         />

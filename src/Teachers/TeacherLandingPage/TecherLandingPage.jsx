@@ -36,10 +36,14 @@ const TeacherDashboard = () => {
       <TeacherStudent teacher={teacher} setTeacher={setTeacher} />
       <QuestionsSection teacher={teacher} setTeacher={setTeacher} />
       <CreateQuiz teacher={teacher} />
-
       <BookmarksSection teacher={teacher} />
     </div>
   );
 };
 
 export default TeacherDashboard;
+
+// <QuestionsSection teacher={teacher} setTeacher={setTeacher} />
+//<CreateQuiz teacher={teacher} />
+
+//<BookmarksSection teacher={teacher} />
