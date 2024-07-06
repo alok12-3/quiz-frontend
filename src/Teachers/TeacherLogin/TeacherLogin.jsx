@@ -56,8 +56,27 @@ const TeacherLogin = () => {
     }
   };
 
+  const handleLogin = (username) => {
+    if (!username) {
+      console.log("enter your username");
+      return;
+    }
+    navigate(`/teacher/${username}`);
+  };
+
   return (
     <div>
+      <div>
+        <h2>Login Teacher</h2>
+        <input
+          type="text"
+          placeholder="Enter your username"
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
+        <button onClick={() => handleLogin(username)}>Login</button>
+      </div>
       <h2>Create Teacher</h2>
       <form onSubmit={handleSubmit}>
         <div>
