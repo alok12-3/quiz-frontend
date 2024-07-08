@@ -5,6 +5,8 @@ import TeacherStudent from "../TeacherStudent/TeacherStudent";
 import QuestionsSection from "../QuestionSection";
 import CreateQuiz from "../CreateQuiz";
 import BookmarksSection from "../Bookmark";
+import ClassList from "../../SchoolManagementSystem/ClassList";
+import TeacherClasses from "../TeacherClasses";
 
 const TeacherDashboard = () => {
   const { username } = useParams();
@@ -26,6 +28,14 @@ const TeacherDashboard = () => {
     fetchTeacher();
   }, [username]);
 
+  const handleUpdate = async () => {
+    // Refetch teacher data after update
+    const response = await axios.get(
+      `${import.meta.env.VITE_BACKEND_URL}/api/teachers/username/${username}`
+    );
+    setTeacher(response.data);
+  };
+
   if (!teacher) {
     return <div>Loading...</div>;
   }
@@ -33,10 +43,14 @@ const TeacherDashboard = () => {
   return (
     <div>
       <h1>Welcome, {teacher.username}</h1>
+      <h1>{teacher._id}</h1>
+      <h1>classes of {teacher.username}</h1>
+      <TeacherClasses classIds={teacher.className} />
       <TeacherStudent teacher={teacher} setTeacher={setTeacher} />
       <QuestionsSection teacher={teacher} setTeacher={setTeacher} />
       <CreateQuiz teacher={teacher} />
       <BookmarksSection teacher={teacher} />
+      <ClassList teacherId={teacher._id} onUpdate={handleUpdate} />
     </div>
   );
 };
