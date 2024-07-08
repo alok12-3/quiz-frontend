@@ -32,6 +32,11 @@ function Navbar() {
               Teacher
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/school" activeClassName="active-link">
+              School
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>

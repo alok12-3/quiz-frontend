@@ -9,6 +9,7 @@ import "./App.css"; // Import the App.css file
 import Blankdiv from "./indcomponents/Blankdiv";
 import TeacherLandingPage from "./Teachers/TeacherLandingPage/TecherLandingPage";
 import TeacherLogin from "./Teachers/TeacherLogin/TeacherLogin"; // Adjust the import path as necessary
+import SchoolManagement from "./SchoolManagementSystem/SchoolManagement"; // Adjust the import path as necessary
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/teacher/:username" element={<TeacherLandingPage />} />
             <Route path="/teacher" element={<TeacherLogin />} />
+            <Route path="/School" element={<SchoolManagement />} />
           </Routes>
         </div>
       </div>
