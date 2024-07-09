@@ -7,6 +7,8 @@ const CreateClass = () => {
   const [grade, setGrade] = useState("");
   const [section, setSection] = useState("");
   const [schoolId, setSchoolId] = useState("");
+  const [quizId, setQuizId] = useState([]);
+  const [studentsId, setStudents] = useState([]);
   const [isCreated, setIsCreated] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -20,6 +22,8 @@ const CreateClass = () => {
           grade,
           section,
           schoolId,
+          quizId,
+          studentsId,
         }
       );
       console.log("Class created:", response.data);
