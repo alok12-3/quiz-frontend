@@ -10,6 +10,7 @@ import Blankdiv from "./indcomponents/Blankdiv";
 import TeacherLandingPage from "./Teachers/TeacherLandingPage/TecherLandingPage";
 import TeacherLogin from "./Teachers/TeacherLogin/TeacherLogin"; // Adjust the import path as necessary
 import SchoolManagement from "./SchoolManagementSystem/SchoolManagement"; // Adjust the import path as necessary
+import StudentsLandingPage from "./Student/StudentsLandingPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/teacher/:username" element={<TeacherLandingPage />} />
             <Route path="/teacher" element={<TeacherLogin />} />
             <Route path="/School" element={<SchoolManagement />} />
+            <Route path="/Student" element={<StudentsLandingPage />} />
           </Routes>
         </div>
       </div>
