@@ -38,7 +38,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/student" activeClassName="active-link">
+            <NavLink to="/studentlogin" activeClassName="active-link">
               Student
             </NavLink>
           </li>
