@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import ClassDetails from "./StudentClass";
 
 const StudentDashboard = () => {
   const { username } = useParams();
@@ -45,6 +46,7 @@ const StudentDashboard = () => {
       <p>Phone Number: {student.phoneNumber}</p>
       <p>School ID: {student.schoolId}</p>
       {/* Add more fields as necessary */}
+      <ClassDetails student={student} />
     </div>
   );
 };
