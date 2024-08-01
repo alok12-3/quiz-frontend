@@ -58,6 +58,13 @@ const DisplayResponses = ({ studentId }) => {
                   <p className="text-gray-600">
                     Gemini Response: {answer.geminiresponse}
                   </p>
+                  <div>
+                    <img
+                      src={answer.imageUrl}
+                      alt="Student's response"
+                      className="w-full max-w-sm rounded-lg"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
